@@ -8,13 +8,20 @@
 <br/>
 <label for="out">Output:</label>
 <br/>
+<br/>
 <div id="out"></div>
+<br/>
+<label for="link">Link:</label>
+<br/>
+<br/>
+<code id="link"></code>
 <script>
 function process() {
   let username = document.getElementById("input").value;
   console.log(username);
   let URL = `https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fraw.githubusercontent.com%2FSandbox-Reviews%2FSandbox-Reviews.github.io%2Fmain%2Fdata.yaml&query=%24.${username}&logo=codereview&label=${username}'s%20Sandbox%20Reviews&color=white`;
   console.log(URL)
+  document.getElementById("link").innerHTML = URL
   document.getElementById("out").innerHTML = `<img src="${URL}" />`;
 }
 </script>
