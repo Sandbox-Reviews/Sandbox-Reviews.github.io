@@ -5,9 +5,10 @@
 <label for="out">Output:</label><div id="out"></div>
 <script>
 function process() {
-  let getelem = document.getElementById
-  let username = getelem("input").value
-  let URL = `https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fsandbox-reviews.github.io%2Fdata.yaml&query=%24.${username}&logo=codereview&label=${username}'s%20Sandbox%20Reviews`
-  getelem("out").innerHTML = `<img src="${URL}" />`
+  let username = document.getElementById("input").value;
+  console.log(username);
+  let URL = `https://img.shields.io/badge/dynamic/yaml?url=https%3A%2F%2Fsandbox-reviews.github.io%2Fdata.yaml&query=%24.${username}&logo=codereview&label=${username}'s%20Sandbox%20Reviews`;
+  console.log(URL)
+  document.getElementById("out").innerHTML = `<img src="${URL}" />`;
 }
 </script>
