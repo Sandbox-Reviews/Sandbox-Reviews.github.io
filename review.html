@@ -29,10 +29,9 @@
   const analytics = getAnalytics(app);
   const database = getDatabase(app);
   const data_ref = ref(database);
-  window.__data_ref__ = data_ref
-  </script>
-  <script>
-    import { getDatabase, ref, child, get } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-database.js";
-    get(child(window.__data_ref__, `users`)).then((snapshot) => console.log(snapshot.val())).catch((error) => console.error(error))
+
+
+  // The actual querying code
+  get(child(data_ref, `users`)).then((snapshot) => console.log(snapshot.val())).catch((error) => console.error(error))
   </script>
 </body>
