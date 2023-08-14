@@ -3,6 +3,8 @@
   <title>Review</title>
 </head>
 <body>
+  <div id="data">
+  </div>
   <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
@@ -32,6 +34,6 @@
 
 
   // The actual querying code
-  get(child(data_ref, `users`)).then((snapshot) => console.log(snapshot.val())).catch((error) => console.error(error))
+  get(child(data_ref, `users`)).then((snapshot) => for (datum in items){document.getElementById("data").innerHTML = document.getElementById("data").innerHTML.concat(datum["name"].concat(": ", datum["points"].toString()))}).catch((error) => console.error(error))
   </script>
 </body>
