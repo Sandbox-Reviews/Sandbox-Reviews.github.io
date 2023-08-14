@@ -34,6 +34,6 @@
 
 
   // The actual querying code
-  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => console.log(`${item["name"]}: ${item["points"]}`))).catch((error) => console.error(error))
+  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => console.log(item))).catch((error) => console.error(error))
   </script>
 </body>
