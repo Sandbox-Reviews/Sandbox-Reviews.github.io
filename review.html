@@ -34,6 +34,6 @@
 
 
   // The actual querying code
-  get(child(data_ref, `users`)).then((snapshot) => for (datum in items){document.getElementById("data").innerHTML = document.getElementById("data").innerHTML.concat(datum["name"].concat(": ", datum["points"].toString()))}).catch((error) => console.error(error))
+  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => document.getElementById("data").innerHTML = document.getElementById("data").innerHTML.concat(item["name"].concat(": ", item["points"].toString())))).catch((error) => console.error(error))
   </script>
 </body>
