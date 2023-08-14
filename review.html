@@ -26,7 +26,7 @@
     measurementId: "G-HZE4N33MTB"
   };
 
-  // Initialize Firebase
+  // Initialize Firebase for database writing and querying
   const app = initializeApp(firebaseConfig);
   const analytics = getAnalytics(app);
   const database = getDatabase(app);
@@ -34,6 +34,7 @@
 
 
   // The actual querying code
-  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => console.log(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`))).catch((error) => console.error(error))
+  const data_put = document.getElementById("data")
+  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `\n`)))).catch((error) => console.error(error))
   </script>
 </body>
