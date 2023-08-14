@@ -29,8 +29,9 @@
   const analytics = getAnalytics(app);
   const database = getDatabase(app);
   const data_ref = ref(database);
-  get(child(data_ref, `users`)).then((snapshot) => console.log(snapshot.val())).catch((error) => console.error(error))
-
-
+  window.__data_ref__ = data_ref
+  </script>
+  <script>
+    get(child(window.__data_ref__, `users`)).then((snapshot) => console.log(snapshot.val())).catch((error) => console.error(error))
   </script>
 </body>
