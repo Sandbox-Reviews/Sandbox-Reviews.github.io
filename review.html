@@ -5,6 +5,8 @@
 <body>
   <div id="data">
   </div>
+  <input id="text"/>
+  <button onclick="getref()">Get Value</button>
   <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
@@ -35,6 +37,8 @@
 
   // The actual querying code
   const data_put = document.getElementById("data")
-  get(data_ref).then((snapshot) => console.log(snapshot) /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error))
+  function getref() {
+    get(child(data_ref, document.getElementById("text").value)).then((snapshot) => console.log(snapshot) /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error))
+  }
   </script>
 </body>
