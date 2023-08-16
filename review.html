@@ -35,6 +35,6 @@
 
   // The actual querying code
   const data_put = document.getElementById("data")
-  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => (data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))).catch((error) => console.error(error))
+  get(child(data_ref, `users`)).then((snapshot) => snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))).catch((error) => console.error(error))
   </script>
 </body>
