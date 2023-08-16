@@ -37,7 +37,7 @@
 
   // The actual querying code
   const data_put = document.getElementById("data")
-  function getref() {
+  export function getref() {
     get(child(data_ref, document.getElementById("text").value)).then((snapshot) => console.log(snapshot) /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error))
   }
   </script>
