@@ -38,7 +38,7 @@
   // The actual querying code
   const data_put = document.getElementById("data")
   function getref() {
-    get(child(data_ref, document.getElementById("text").value)).then((snapshot) => console.log(snapshot) /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error))
+    get(child(data_ref, document.getElementById("text").value)).then((snapshot) => document.getElementById("data").innerHTML = snapshot._node.value_ /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error))
   }
   window.__getref__ = getref
   </script>
