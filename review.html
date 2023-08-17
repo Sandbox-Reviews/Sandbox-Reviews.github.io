@@ -36,7 +36,8 @@
   const database = getDatabase(app);
   const data_ref = ref(database);
 
-
+  const urlParams = new URLSearchParams(window.location.search);
+  const access_token = urlParams.get('access_token');
   // The actual querying code
   const data_put = document.getElementById("data");
   function getref() {
@@ -55,4 +56,6 @@
   <br/>
   <button onclick="window.__getref__()">Get Value</button>
   <button onclick="window.__setref__()">Set Value</button>
+  <br/>
+  <a href="https://stackoverflow.com/oauth/dialog?client_id=26996&scope=write_access&redirect_uri=https://sandbox-reviews.github.io/review.html">OAuth</a>
 </body>
