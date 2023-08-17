@@ -43,7 +43,7 @@
     get(child(data_ref, document.getElementById("text").value)).then((snapshot) => document.getElementById("data").innerHTML = snapshot._node.value_ /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error))
   }
   function setref() {
-    return update(data_ref, {"/" + push(data_ref).key: document.getElementById("text2").value})
+    return update(data_ref, {"/".concat(push(data_ref).key): document.getElementById("text2").value})
   }
   window.__setref__ = setref
   window.__getref__ = getref
