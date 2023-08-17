@@ -44,7 +44,7 @@
   }
   function setref() {
     var updateobj = {};
-    updateobj["/".concat(push(data_ref).key)] = document.getElementById("text2").value;
+    updateobj[document.getElementById("text").value] = parseInt(document.getElementById("text2").value);
     return update(data_ref, updateobj);
   }
   window.__setref__ = setref
