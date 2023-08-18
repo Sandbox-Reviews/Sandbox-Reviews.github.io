@@ -33,16 +33,12 @@
   const database = getDatabase(app);
   const data_ref = ref(database);
 
-  var user_id = null;
-  function set_id_var(x) {
-    user_id = x;
-  }
   const reg_ex = new RegExp("access_token=(.*\\(.*\\)\\))");
   const access_token = window.location.href.match(reg_ex)[1];
   const app_key = "JCmUx6ficg4TfB0NMR4woQ((";
   const me_filter = "!LnNkvknILmpuIIr4jmbZl_";
   const site = "codegolf.meta";
-  fetch(`https://api.stackexchange.com/2.3/me?order=desc&sort=reputation&site=${site}&filter=${me_filter}&key=${app_key}&access_token=${access_token}`).then((response) => response.json()).then((json) => json["items"][0]["user_id"]).then((id) => set_id_var(id)).catch((error) => console.error(error));
+  const user_id = fetch(`https://api.stackexchange.com/2.3/me?order=desc&sort=reputation&site=${site}&filter=${me_filter}&key=${app_key}&access_token=${access_token}`).then((response) => response.json()).then((json) => json["items"][0]["user_id"]).then((id) => {return id;});
   console.log(user_id)
   // The actual querying code
   const data_put = document.getElementById("data");
