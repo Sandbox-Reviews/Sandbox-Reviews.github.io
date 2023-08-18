@@ -38,7 +38,7 @@
   const app_key = "JCmUx6ficg4TfB0NMR4woQ(("
   const me_filter = "!LnNkvknILmpuIIr4jmbZl_"
   const site = "codegolf.meta"
-  fetch(`https://api.stackexchange.com/2.3/me?order=desc&sort=reputation&site=${site}&filter=${me_filter}&key=${app_key}&access_token=${access_token}`).then((response) => response.json()).then((json) => console.log(json)).catch((error) => console.error(error))
+  fetch(`https://api.stackexchange.com/2.3/me?order=desc&sort=reputation&site=${site}&filter=${me_filter}&key=${app_key}&access_token=${access_token}`).then((response) => response.json()).then((json) => json["items"][0]["user_id"]).then((id) => console.log(id)).catch((error) => console.error(error))
   // The actual querying code
   const data_put = document.getElementById("data");
   function get_user_id() {
