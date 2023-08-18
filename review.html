@@ -5,10 +5,7 @@
 <body>
   <div id="data">
   </div>
-  <input id="text"/>
-  <br/>
-  <br/>
-  <input id="text2"/>
+  <input id="post_id"/>
   <script type="module">
   // Import the functions you need from the SDKs you need
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.1.0/firebase-app.js";
@@ -38,8 +35,15 @@
 
   const urlParams = new URLSearchParams(window.location.search);
   const access_token = urlParams.get('access_token');
+  const app_key = "JCmUx6ficg4TfB0NMR4woQ(("
+  const me_filter = "!LnNkvknILmpuIIr4jmbZl_"
+  const site = "codegolf.meta"
+  fetch(`https://api.stackexchange.com/2.3/me?order=desc&sort=reputation&site=${site}&filter=${me_filter}&key=${key}&access_token=${access_token}`).then((response) => response.json()).then((json) => console.log(json))
   // The actual querying code
   const data_put = document.getElementById("data");
+  function get_user_id() {
+    
+  }
   function getref() {
     get(child(data_ref, document.getElementById("text").value)).then((snapshot) => document.getElementById("data").innerHTML = snapshot._node.value_ /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error));
   }
@@ -57,5 +61,5 @@
   <button onclick="window.__getref__()">Get Value</button>
   <button onclick="window.__setref__()">Set Value</button>
   <br/>
-  <a href="https://stackoverflow.com/oauth/dialog?client_id=26996&scope=write_access&redirect_uri=https://sandbox-reviews.github.io/review.html">OAuth</a>
+  <a href="https://stackoverflow.com/oauth/dialog?client_id=26996&scope=write_access&redirect_uri=https://sandbox-reviews.github.io/review.html">Login</a>
 </body>
