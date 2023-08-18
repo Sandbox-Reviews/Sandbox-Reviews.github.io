@@ -34,7 +34,7 @@
   const data_ref = ref(database);
 
   const reg_ex = new RegExp("access_token=.*\\(.*\\)\\)")
-  const access_token = reg_ex.match(window.location.href)[0];
+  const access_token = window.location.href.match(reg_ex)[0];
   const app_key = "JCmUx6ficg4TfB0NMR4woQ(("
   const me_filter = "!LnNkvknILmpuIIr4jmbZl_"
   const site = "codegolf.meta"
