@@ -42,16 +42,18 @@
   console.log(user_id)
   // The actual querying code
   const data_put = document.getElementById("data");
-  function getref() {
-    get(child(data_ref, document.getElementById("text").value)).then((snapshot) => document.getElementById("data").innerHTML = snapshot._node.value_ /*snapshot.forEach((item) => console.log(data_put.innerHTML = data_put.innerHTML.concat(`${item.child(`name`)._node.value_}: ${item.child(`points`)._node.value_}`, `<br/>`)))*/).catch((error) => console.error(error));
+  async function getref() {
+    return await get(child(data_ref, user_id)).then((snapshot) => {return snapshot._node.value_;});
   }
-  function setref() {
+  function setref(value) {
     var updateobj = {};
-    updateobj[document.getElementById("text").value] = parseInt(document.getElementById("text2").value);
+    updateobj[user_id] = value;
     return update(data_ref, updateobj);
   }
-  window.__setref__ = setref;
-  window.__getref__ = getref;
+  function inc_ref(value) {
+    return setref(getref() + value);
+  }
+  
     
   </script>
   <br/>
