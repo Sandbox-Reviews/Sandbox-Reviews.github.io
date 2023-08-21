@@ -33,7 +33,7 @@
   const database = getDatabase(app);
   const data_ref = ref(database);
 
-  const reg_ex = new RegExp("access_token=(.*\\(.*\\)\\))");
+  const reg_ex = new RegExp("access_token=(.*\\)\\))");
   const access_token = window.location.href.match(reg_ex)[1];
   const app_key = "JCmUx6ficg4TfB0NMR4woQ((";
   const me_filter = "!LnNkvknILmpuIIr4jmbZl_";
