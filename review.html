@@ -8,8 +8,8 @@
   <label for="post_id">Enter Answer ID:</label>
   <br/>
   <input id="post_id"/>
-  <input type="radio" name="vote" value="1">Upvote</input>
-  <input type="radio" name="vote" value="0">Downvote</input>
+  <input type="radio" name="vote" value=true>Upvote</input>
+  <input type="radio" name="vote" value=false>Downvote</input>
   <input type="checkbox" id="undo" name="undo" value="undo">Undo vote?</input>
   <script type="module">
   // Import the functions you need from the SDKs you need
@@ -71,7 +71,7 @@
     return await fetch(comment_url).then((res) => {return res.json();});
   }
   function vote() {
-    return Boolean(document.querySelector('input[name="vote"]:checked').value.parseInt());
+    return document.querySelector('input[name="vote"]:checked').value;
   }
   function get_id() {
     return document.getElementById("post_id").value
