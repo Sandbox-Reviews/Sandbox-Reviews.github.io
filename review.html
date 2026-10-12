@@ -66,7 +66,7 @@
     const down_vote_url = `https://api.stackexchange.com/2.3/answers/${get_id()}/downvote${get_undo()?'/undo':''}?key=${app_key}&access_token=${access_token}`;
     return await fetch(down_vote_url).then((res) => {return res.json();});
   }
-  async function comment(body) { 
+  async function comment(body) {
     const comment_url = `https://api.stackexchange.com/2.3/posts/${get_id()}/comments/add?key=${app_key}&access_token=${access_token}&body=${body}`;
     return await fetch(comment_url).then((res) => {return res.json();});
   }
